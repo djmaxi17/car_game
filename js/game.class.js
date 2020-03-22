@@ -27,7 +27,7 @@ export default class Game{
         this.metro = [];
         setInterval(()=>this.populateMetro(),10000);
         this.animals = [];
-        setInterval(()=>this.populateAnimal(),5000);
+        setInterval(()=>this.populateAnimal(),500);
         
         this._paused = false;
         
