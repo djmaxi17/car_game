@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>SOV NOU LA NATIR</title>
+    <link rel="icon" href="images/icon.jpg" type="image/gif" sizes="16x16">
+	<style type="text/css">
+		canvas{
+			position: fixed;
+			top:50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+		}
+
+		#scoreboard{
+			width:512px;
+			height: 850px;
+			position: fixed;
+			top:50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+		#scoreboard .inner-board{
+			height: inherit;
+			width:inherit;
+			position:relative;
+		}
+
+		#scoreboard .inner-board .animal_num{
+			position:fixed;
+			left:10px;
+			top:100px;
+			display:flex;
+		}
+		#scoreboard .inner-board .animal_num .animals-container{
+			width:10px;
+			padding:0px 5px;
+		}
+
+		#scoreboard .inner-board .score-meter{
+			position: fixed;
+			right:10px;
+			top:65px;
+			display: flex;
+		}
+		#scoreboard .inner-board .score-meter .label{
+			margin-right:10px;
+		}
+		
+
+		#scoreboard .inner-board .highscore-meter{
+			position: fixed;
+			right:10px;
+			top:100px;
+			display: flex;
+		}
+		#scoreboard .inner-board .highscore-meter .label{
+			margin-right:10px;
+		}
+		
+		#scoreboard .inner-board .speedo-meter{
+			position: fixed;
+			left:10px;
+			top:65px;
+			display: flex;
+		}
+		#scoreboard .inner-board .speedo-meter .speed{
+			width:30px;
+			text-align: right;
+		}
+		#scoreboard .inner-board .speedo-meter .unit{
+			margin-left: 5px;
+
+		}
+		.meter-box{
+			color:#ffffff;
+			background-color:rgba(0,0,0,0.5);
+			padding:5px 10px;
+		}
+		#scoreboard .inner-board .messages{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+        }
+        #scoreboard .inner-board .messages .try-again{
+            background-image: url('./images/splashscreenloss.png');
+            width: inherit;
+            height: inherit;
+            display: none;
+        }
+	</style>
+</head>
+<body>
+	<canvas id="canvas" width="800" height="850"></canvas>
+    <script src="js/index.js" type="module"></script>
+    
+	<div id="scoreboard">
+		<div class="inner-board">
+
+			<div class="animal_num meter-box">
+				<div class="label">Animals: </div>
+					<div class="animals-container">
+						<div class="animals">
+							0
+					</div>
+				</div>
+			</div> 
+			<!-- END OF FUEL METER  -->
+
+			<div class="score-meter meter-box">
+				<div class="label">
+					SCORE:
+				</div>
+				<div class="score">
+					0
+				</div>
+            </div>
+		<!-- END OF score METER -->
+			<div class="highscore-meter meter-box">
+				<div class="label">
+					HIGHSCORE:
+				</div>
+				<div class="highscore">
+					0
+				</div>
+            </div>
+            <!--end of high score-->
+		<div class="speedo-meter meter-box">
+			<div class="speed">
+				0
+			</div>
+			<div class="unit">
+				KM/H
+			</div>
+		</div>
+		<!--  Speed meter -->
+		<div class="messages">
+                <div class="try-again">
+                </div>
+        </div>
+		</div>
+	</div>
+	
+</body>
+</html>
