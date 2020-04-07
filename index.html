@@ -12,7 +12,6 @@
 			transform: translate(-50%,-50%);
 		}
 
-
 		#scoreboard{
 			width:512px;
 			height: 850px;
@@ -26,24 +25,18 @@
 			width:inherit;
 			position:relative;
 		}
-/*
-		#scoreboard .inner-board .fuel-meter{
+
+		#scoreboard .inner-board .animal_num{
 			position:fixed;
 			left:10px;
-			top:65px;
+			top:100px;
 			display:flex;
 		}
-		#scoreboard .inner-board .fuel-meter .fuel-level-container{
-			width:100px;
+		#scoreboard .inner-board .animal_num .animals-container{
+			width:10px;
 			padding:0px 5px;
 		}
-		#scoreboard .inner-board .fuel-meter .fuel-level-container .fuel-level{
-			width:50px;
-			height:20px;
-			background-color:green;
-		}
-*/
-        
+
 		#scoreboard .inner-board .score-meter{
 			position: fixed;
 			right:10px;
@@ -53,6 +46,18 @@
 		#scoreboard .inner-board .score-meter .label{
 			margin-right:10px;
 		}
+		
+
+		#scoreboard .inner-board .highscore-meter{
+			position: fixed;
+			right:10px;
+			top:100px;
+			display: flex;
+		}
+		#scoreboard .inner-board .highscore-meter .label{
+			margin-right:10px;
+		}
+		
 		#scoreboard .inner-board .speedo-meter{
 			position: fixed;
 			left:10px;
@@ -94,15 +99,17 @@
     
 	<div id="scoreboard">
 		<div class="inner-board">
-<!--
-			<div class="fuel-meter meter-box">
-				<div class="label">FUEL: </div>
-					<div class="fuel-level-container">
-						<div class="fuel-level">
+
+			<div class="animal_num meter-box">
+				<div class="label">Animals: </div>
+					<div class="animals-container">
+						<div class="animals">
+							0
 					</div>
 				</div>
-			</div> END OF FUEL METER 
--->
+			</div> 
+			<!-- END OF FUEL METER  -->
+
 			<div class="score-meter meter-box">
 				<div class="label">
 					SCORE:
@@ -112,6 +119,15 @@
 				</div>
             </div>
 		<!-- END OF score METER -->
+			<div class="highscore-meter meter-box">
+				<div class="label">
+					HIGHSCORE:
+				</div>
+				<div class="highscore">
+					0
+				</div>
+            </div>
+            <!--end of high score-->
 		<div class="speedo-meter meter-box">
 			<div class="speed">
 				0

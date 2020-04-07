@@ -1,4 +1,3 @@
-
 export default class Animals{
 	constructor(game){
 		this.game = game;
@@ -6,6 +5,7 @@ export default class Animals{
 		this.animal = new Image;
 		this.animal.src = "./images/animalzoom.png";
 		this.animalNo = 0; //Math.round(Math.random() * 3);
+        this.animalY = (Math.round(Math.random()*3));
 		this._positionY = (Math.random() * 800) * -1;
 		this.speed = 0.5;
 		this.lane = Math.floor(Math.random() * 4);
@@ -28,7 +28,7 @@ export default class Animals{
 	}
 
 	draw(){
-        setInterval(this.drawAnimal(),10);
+        setInterval(this.drawAnimal(),1);
 	}
     
     drawAnimal(){
@@ -39,7 +39,7 @@ export default class Animals{
         else if(this.animalNo==1){
             this.animalNo=0;
         }
-		this.context.drawImage(this.animal,this.animalNo*200,0,200,200,this.lanePosX[this.lane],this._positionY,60,60); 
+		this.context.drawImage(this.animal,this.animalNo*200,this.animalY*200,200,200,this.lanePosX[this.lane],this._positionY,60,60); 
         
         if(this._positionY>=780){
                     this.game.animals.splice(this.game.animals.indexOf(this),1);

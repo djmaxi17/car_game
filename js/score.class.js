@@ -6,17 +6,25 @@ export default class Score{
 		this.game = game;
 
 		this.scoreDiv = document.querySelector(".score-meter .score");
-        
+        this.animalDiv = document.querySelector(".animals-container .animals");
+        this.highScoreDiv = document.querySelector(".highscore-meter .highscore");
+
+        this.animalCount = 0;
+        this.highscore = 0;
         this.score =0;
-        
-        this.hitSound = new Sound("./audio/mario.wav");
+        this.context = this.game.context;
+        this.lepouce = new Image;
+        this.lepouce.src = "images/TickSprite.png";
+        this.hitSound = new Sound("./audio/bounce.wav");
 	}
 
 	update(){
 		this.updateScore();
         this.hitScoreUpdate();
 	}
-    
+    get hit(){
+        return this._hit;
+    }
     updateScore(){
         if(this.game.playerCar.speed!=0){
             this.score = this.score+0.07;
@@ -32,12 +40,24 @@ export default class Score{
         }
        
         this.scoreDiv.innerHTML =parseInt(this.score);
+        this.animalDiv.innerHTML = parseInt(this.animalCount);
+
     }
     
     resetScore(){
+        if(this.score > this.highscore){
+            this.highscore = this.score;
+            this.highScoreDiv.innerHTML = parseInt(this.highscore);
+        }
         this.score =0;
+        this.animalCount =0;
     }
     
+    drawThumb(x,y){
+        this.context.drawImage(this.lepouce,x,y,100,100);
+    }
+
+   // updateAnimalCount
     hitScoreUpdate(){
         for(let i=0;i<this.game.animals.length;i++){
             let animal = this.game.animals[i];
@@ -45,7 +65,10 @@ export default class Score{
                 if(Math.abs(animal.positionX-this.game.playerCar.positionX)<50){
                     this.hitSound.play();
                     this.game.animals.splice(this.game.animals.indexOf(animal),1);
+                    setInterval(this.drawThumb(this.game.playerCar.positionX, this.game.playerCar.positionY),7000);
                     this.score +=100;
+                    this.animalCount++;
+                    this._hit = true;
                 }
                 
             }

@@ -23,11 +23,11 @@ export default class Game{
         });
         
         this.traffic = [];
-        setInterval(()=>this.populateTraffic(),3000); 
+        setInterval(()=>this.populateTraffic(),2000); 
         this.metro = [];
         setInterval(()=>this.populateMetro(),10000);
         this.animals = [];
-        setInterval(()=>this.populateAnimal(),500);
+        setInterval(()=>this.populateAnimal(),1000);
         
         this._paused = false;
         
@@ -88,7 +88,7 @@ export default class Game{
         this.animals.forEach(animalAnimals=>{
             animalAnimals.update();
         });
-        
+
         if(isCollide(this.playerCar,this.traffic)){
             this.explosion.update();
     
